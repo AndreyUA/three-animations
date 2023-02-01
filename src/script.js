@@ -32,19 +32,30 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
 
 // Previous time
-let prevTime = Date.now();
+// let prevTime = Date.now();
+
+// Clock by three.js
+const clock = new THREE.Clock();
 
 // Animation
 const tick = () => {
   // Current time
-  const curTime = Date.now();
-  const delta = curTime - prevTime;
-  prevTime = curTime;
+  // const curTime = Date.now();
+  // const delta = curTime - prevTime;
+  // prevTime = curTime;
+
+  // Clock
+  const elapsedTime = clock.getElapsedTime();
 
   // Update
-  mesh.rotation.y += 0.001 * delta;
-  mesh.rotation.z += 0.004 * delta;
-  mesh.position.z -= 0.0005 * delta;
+  // mesh.rotation.y += 0.001 * delta;
+  // mesh.rotation.z += 0.004 * delta;
+  // mesh.position.z -= 0.0005 * delta;
+
+  // Update with clock
+  mesh.rotation.y = elapsedTime;
+  mesh.rotation.z = elapsedTime;
+  mesh.position.z = elapsedTime * -0.5;
 
   // Rerender
   renderer.render(scene, camera);
