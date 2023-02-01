@@ -55,7 +55,10 @@ const tick = () => {
   // Update with clock
   mesh.rotation.y = elapsedTime;
   mesh.rotation.z = elapsedTime;
-  mesh.position.z = elapsedTime * -0.5;
+  
+  mesh.position.y = Math.sin(elapsedTime);
+  mesh.position.x = Math.cos(elapsedTime);
+  mesh.position.z = elapsedTime * -0.25;
 
   // Rerender
   renderer.render(scene, camera);
